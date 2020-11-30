@@ -65,7 +65,7 @@ public class DemoCounters implements Runnable {
         if (reading > 0 && newReading > 0) {
         	//if (reading > newReading) {temp.increment(reading-newReading);}
         	//else if (reading < newReading) {temp.increment(newReading-reading);}
-        	if (reading != newReading) {temp.increment(reading-newReading);}
+        	if (reading != newReading) {float result = reading-newReading; LOGGER.info("Temperature Change: "+result); temp.increment(result);}
         	else { LOGGER.info("No change in Temperature.");}
         }
         else { LOGGER.info("ERROR: Can't read Temperature."); }
