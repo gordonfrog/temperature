@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public class DemoDistribution implements Runnable {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(DemoCounters.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(DemoDistribution.class);
   //
   private final DistributionSummary summary;
 
