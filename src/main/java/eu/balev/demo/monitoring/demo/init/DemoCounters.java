@@ -63,8 +63,9 @@ public class DemoCounters implements Runnable {
         
         float newReading = readSensor();
         if (reading > 0 && newReading > 0) {
-        	if (reading > newReading) {temp.increment(reading-newReading);}
-        	else if (reading < newReading) {temp.increment(newReading-reading);}
+        	//if (reading > newReading) {temp.increment(reading-newReading);}
+        	//else if (reading < newReading) {temp.increment(newReading-reading);}
+        	if (reading != newReading) {temp.increment(reading-newReading);}
         	else { LOGGER.info("No change in Temperature.");}
         }
         else { LOGGER.info("ERROR: Can't read Temperature."); }
