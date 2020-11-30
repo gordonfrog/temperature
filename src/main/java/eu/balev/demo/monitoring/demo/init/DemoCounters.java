@@ -30,8 +30,8 @@ public class DemoCounters implements Runnable {
   
   public float reading;
   
-  @Value("${sensorsMasterDirectory:/sys/class/thermal/}")
-  private String SENSORS_MASTER_DIRECTORY;
+  //@Value("${sensorsMasterDirectory:/sys/class/thermal/}")
+  private String SENSORS_MASTER_DIRECTORY = "/sys/class/thermal/";
 
   DemoCounters(MeterRegistry meterRegistry) {
     beat1 = Counter

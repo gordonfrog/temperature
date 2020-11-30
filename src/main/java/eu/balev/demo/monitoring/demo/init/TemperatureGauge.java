@@ -15,8 +15,8 @@ class TemperatureGauge {
 	
   private static final Logger LOGGER = LoggerFactory.getLogger(TemperatureGauge.class);
   
-  @Value("${sensorsMasterDirectory:/sys/class/thermal/}")
-  public static String SENSORS_MASTER_DIRECTORY;
+  //@Value("${sensorsMasterDirectory:/sys/class/thermal/}")
+  public static String SENSORS_MASTER_DIRECTORY = "/sys/class/thermal/";
 
   TemperatureGauge(MeterRegistry meterRegistry) {
     //All of the different forms of creating a gauge maintain
