@@ -71,11 +71,26 @@ input:checked + .slider:before {
 </style>
 	<script type="text/javascript">
 		var app = angular.module('serviceApp', []);
+		//var response;
 		app.controller('serviceCtrl', function ($scope, $http) {
-			$scope.callService = function() {					
-				$http({method: 'GET',url: '/raspberry/light'}).then(function success(response) {					
-					console.log(response);												
-				});
+			$scope.callService = function() {	
+				var action = "off";
+				//console.log("checkbox="+$("input[type='checkbox']").val());
+				if ($("input[type='checkbox']").prop('checked'))
+					action = "on";
+				console.log("action="+action);
+				if (action == "on") {
+					$http({method: 'GET',url: '/raspberry/dark'}).then(function success(response) {					
+						console.log(response.data);
+						response = "on";
+					});
+				}
+				else {
+					$http({method: 'GET',url: '/raspberry/light'}).then(function success(response) {					
+						console.log(response.data);
+						response = "on";
+					});
+				}
 			}			
 		});
 	</script>
