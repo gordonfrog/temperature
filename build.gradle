@@ -27,5 +27,7 @@ dependencies {
   compile('org.springframework.boot:spring-boot-starter-web')
   compile('org.springframework.boot:spring-boot-starter-actuator')
   compile('io.micrometer:micrometer-registry-prometheus')
+  compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+  compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
   compile group: 'commons-io', name: 'commons-io', version: '2.4'
 }
