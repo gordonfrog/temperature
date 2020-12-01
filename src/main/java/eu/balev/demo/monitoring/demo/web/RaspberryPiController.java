@@ -29,6 +29,15 @@ public class RaspberryPiController {
 //		
 //		return status;
 //	}
+//	@GetMapping("/raspberry/dark")
+//	public Status dark(){
+//		logger.info("/raspberry/dark");
+//		Status status = new Status();	
+//		status.setCode("OFF");
+//		logger.info("returning status: "+status);
+//		
+//		return status;
+//	}
 	
 
 	@GetMapping("/raspberry/light")
@@ -44,19 +53,32 @@ public class RaspberryPiController {
 		
 		logger.info("is pin high? "+pin.isHigh());
 		logger.info("is pin low? "+pin.isLow());
+		if (pin.isLow()) {
+			pin.high();
+			pin.toggle();
+		}
+		status.setCode("ON");
+		logger.info("returning status: "+status);
+		return status;
+	}
+	@GetMapping("/raspberry/dark")
+	public Status dark(){
+		logger.info("/raspberry/dark");
+		GpioController gpio = GpioFactory.getInstance();
+		Status status = new Status();	
+		if(pin==null){	        
+	        pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_18, "MyLED", PinState.LOW);
+	        logger.info("pin: "+pin);
+		}
+		else logger.info("pin: "+pin);
+		logger.info("is pin high? "+pin.isHigh());
+		logger.info("is pin low? "+pin.isLow());
 		if(pin.isHigh()) {
 			pin.low();
 			pin.toggle();
-			//pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_18, "MyLED", PinState.LOW);
-			status.setCode("OFF");
-		} else if (pin.isLow()) {
-			pin.high();
-			pin.toggle();
-			//pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_18, "MyLED", PinState.HIGH);
-			status.setCode("ON");
-		}
+		} 
+		status.setCode("OFF");
 		logger.info("returning status: "+status);
-		
 		return status;
 	}
 	
@@ -132,13 +154,4 @@ public class RaspberryPiController {
 	    
 	}
 	
-	@GetMapping("/raspberry/dark")
-	public Status dark(){
-		logger.info("/raspberry/dark");
-		Status status = new Status();	
-		status.setCode("OFF");
-		logger.info("returning status: "+status);
-		
-		return status;
-	}
 }
