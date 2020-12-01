@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pi4j.io.gpio.GpioFactory;
 import com.pi4j.io.gpio.GpioPinDigitalOutput;
 import com.pi4j.io.gpio.RaspiPin;
+import com.pi4j.wiringpi.Gpio;
 
 import eu.balev.demo.monitoring.demo.Status;
 
@@ -81,18 +82,33 @@ public class RaspberryPiController {
 //	
 	@GetMapping("/raspberry/test2")
 	public void test2() {
-		logger.info("<--Pi4J--> GPIO Test2 ... started.");
-//		
-//		if (Gpio.wiringPiSetup() == -1) {
-//			logger.info("GPIO SETUP ERROR");
-//            return;
-//        }
-//		else {
-//			logger.info("01: "+RaspiPin.GPIO_01);
-//			logger.info("02: "+RaspiPin.GPIO_02);
-//			logger.info("03: "+RaspiPin.GPIO_03);
-//			logger.info("04: "+RaspiPin.GPIO_04);
-//		}
+		logger.info("***************<--Pi4J--> GPIO Test2 ... started.****************");		
+		if (Gpio.wiringPiSetup() == -1) {
+			logger.info("GPIO SETUP ERROR");
+            return;
+        }
+		else {
+			logger.info("01: "+RaspiPin.GPIO_01);
+			logger.info("02: "+RaspiPin.GPIO_02);
+			logger.info("03: "+RaspiPin.GPIO_03);
+			logger.info("04: "+RaspiPin.GPIO_04);
+			logger.info("05: "+RaspiPin.GPIO_05);
+			logger.info("06: "+RaspiPin.GPIO_06);
+			logger.info("07: "+RaspiPin.GPIO_07);
+			logger.info("08: "+RaspiPin.GPIO_08);
+			logger.info("09: "+RaspiPin.GPIO_09);
+			logger.info("10: "+RaspiPin.GPIO_10);
+			logger.info("11: "+RaspiPin.GPIO_11);
+			logger.info("12: "+RaspiPin.GPIO_12);
+			logger.info("13: "+RaspiPin.GPIO_13);
+			logger.info("14: "+RaspiPin.GPIO_14);
+			logger.info("15: "+RaspiPin.GPIO_15);
+			logger.info("16: "+RaspiPin.GPIO_16);
+			logger.info("17: "+RaspiPin.GPIO_17);
+			logger.info("18: "+RaspiPin.GPIO_18);
+			logger.info("19: "+RaspiPin.GPIO_19);
+			logger.info("20: "+RaspiPin.GPIO_20);
+		}
 //        
 //        // create gpio controller
 //        GpioController gpio = GpioFactory.getInstance();
