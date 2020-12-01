@@ -123,12 +123,12 @@ public class RaspberryPiController {
 //        	else {logger.info("pin is low, setting to high"); pin.high();}
 //        }
 		
-		if (op == null) {
-			op = GpioFactory.getInstance().provisionDigitalOutputPin(RaspiPin.GPIO_18);
-			logger.info("GPIO_18 is Null"); return;
-		}
-		if (op.isHigh()) {logger.info("GPIO_18 is high, setting to low"); op.low(); return;}
-	    if (op.isLow()) {logger.info("GPIO_18 is low, setting to high"); op.high(); return;}
+//		if (op == null) {
+//			op = GpioFactory.getInstance().provisionDigitalOutputPin(RaspiPin.GPIO_18);
+//			logger.info("GPIO_18 is Null"); return;
+//		}
+//		if (op.isHigh()) {logger.info("GPIO_18 is high, setting to low"); op.low(); return;}
+//	    if (op.isLow()) {logger.info("GPIO_18 is low, setting to high"); op.high(); return;}
 	    
 	}
 	
